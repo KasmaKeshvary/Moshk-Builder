@@ -10,11 +10,144 @@
     <title>Document</title>
 </head>
 <style>
+    body {
+        margin: 0%;
+    }
 
+    .Header {
+        text-align: center;
+        height: 5vh;
+    }
+
+    .flex-container {
+        display: flex;
+        height: 95vh;
+    }
+
+    .Main {
+        width: 80%;
+        border: solid;
+        border-width: 1px 1px 0px 0px;
+        overflow: scroll;
+    }
+
+    .Buttons {
+        margin: 0% 0% 0% 2%;
+    }
+
+    .Navbar {
+        margin: 0% 0% 0% 2%;
+    }
+
+    .Side {
+        width: 20%;
+        border: solid;
+        border-width: 1px 0px 0px 0px;
+    }
+
+    .TextFontFamily {
+        margin: 1% 0% 1% 2%;
+    }
+
+    .TextFontSize {
+        margin: 0% 0% 1% 2%;
+    }
+
+    .TextColor {
+        margin: 0% 0% 1% 2%;
+    }
+
+    .TextBackgroundColor {
+        margin: 0% 0% 1% 2%;
+    }
 </style>
 
 <body>
+    <div class="Header">
+        Moshk Builder
+    </div>
+    <div class="flex-container">
+        <div class="Main">
+            <div class="Buttons">
+                <h2>Buttons</h2>
+                <div class="SubButtons">
+                    <button type="button">Primary</button>
+                    <button type="button">Secondary</button>
+                </div>
+            </div>
+            <div class="Navbar">
+                <h2>Navbar</h2>
+            </div>
+        </div>
+
+        <div class="Side">
+            <div class="TextFontFamily">
+                TextFontFamily : <input id="TextFontFamily"
+                       oninput="TextFontFamily()">
+            </div>
+            <div class="TextFontSize">
+                TextFontSize : <input id="TextFontSize"
+                       oninput="TextFontSize()">
+            </div>
+            <div class="TextColor">
+                TextColor : <input id="TextColor"
+                       oninput="TextColor()">
+            </div>
+            <div class="TextBackgroundColor">
+                TextBackgroundColor : <input id="TextBackgroundColor"
+                       oninput="TextBackgroundColor()">
+            </div>
+        </div>
+    </div>
 
 </body>
+<script>
+
+    function TextFontFamily() {
+        var TextFontFamily = document.getElementById("TextFontFamily").value;
+        var h = document.getElementsByTagName('h2');
+        for (let i = 0; i < h.length; i++) {
+            h[i].style.fontFamily = TextFontFamily;
+        }
+    }
+
+    function TextFontSize() {
+        var TextFontSize = document.getElementById("TextFontSize").value;
+        var hhh = document.getElementsByTagName('h2');
+        var btn = document.getElementsByTagName('button');
+        if (!TextFontSize.includes("px")) TextFontSize += "px";
+        for (let i = 0; i < hhh.length; i++) {
+            hhh[i].style.fontSize = TextFontSize;
+        }
+        for (let i = 0; i < btn.length; i++) {
+            btn[i].style.fontSize = TextFontSize;
+        }
+    }
+
+    function TextColor() {
+        var TextColor = document.getElementById("TextColor").value;
+        var h = document.getElementsByTagName('h2');
+        var btn = document.getElementsByTagName('button');
+        for (let i = 0; i < h.length; i++) {
+            h[i].style.color = TextColor;
+        }
+        for (let i = 0; i < btn.length; i++) {
+            btn[i].style.color = TextColor;
+        }
+    }
+
+    function TextBackgroundColor() {
+        var TextBackgroundColor = document.getElementById("TextBackgroundColor").value;
+        var h = document.getElementsByTagName('h2');
+        var btn = document.getElementsByTagName('button');
+        for (let i = 0; i < h.length; i++) {
+            h[i].style.backgroundColor = TextBackgroundColor;
+        }
+        for (let i = 0; i < btn.length; i++) {
+            btn[i].style.backgroundColor = TextBackgroundColor;
+        }
+    }
+
+</script>
 
 </html>
