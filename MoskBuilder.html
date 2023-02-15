@@ -26,7 +26,7 @@
 
     .Main {
         width: 80%;
-        border: solid;
+        border: solid rgb(226, 211, 211);
         border-width: 1px 1px 0px 0px;
         overflow: scroll;
     }
@@ -41,8 +41,49 @@
 
     .Side {
         width: 20%;
-        border: solid;
+        border: solid rgb(226, 211, 211);
         border-width: 1px 0px 0px 0px;
+    }
+
+    .SideHead {
+        text-align: center;
+        border: solid rgb(226, 211, 211);
+        border-width: 0px 0px 1px 0px;
+    }
+
+    .SideBar {
+        width: 50%;
+        border: solid rgb(226, 211, 211);
+        border-width: 0px 1px 0px 0px;
+    }
+
+    .SideBar p {
+        display: block;
+        background-color: inherit;
+        color: black;
+        padding: 0% 0% 0% 2%;
+        border: none;
+        outline: none;
+        text-align: left;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 0.8rem;
+    }
+
+    .SideBar p:hover {
+        background-color: #ddd;
+    }
+
+    .SideBar p.active {
+        background-color: #ccc;
+    }
+
+    .SideBarDetail {
+        width: 50%;
+    }
+
+    input {
+        width: 50%;
     }
 
     .TextFontFamily {
@@ -81,27 +122,73 @@
         </div>
 
         <div class="Side">
-            <div class="TextFontFamily">
-                TextFontFamily : <input id="TextFontFamily"
-                       oninput="TextFontFamily()">
+            <div class="SideHead">
+                Change Item
             </div>
-            <div class="TextFontSize">
-                TextFontSize : <input id="TextFontSize"
-                       oninput="TextFontSize()">
-            </div>
-            <div class="TextColor">
-                TextColor : <input id="TextColor"
-                       oninput="TextColor()">
-            </div>
-            <div class="TextBackgroundColor">
-                TextBackgroundColor : <input id="TextBackgroundColor"
-                       oninput="TextBackgroundColor()">
+            <div class="flex-container">
+                <div class="SideBar">
+                    <p class="tablinks"
+                       onclick="openCity(event, 'FontFamily')"
+                       id="defaultOpen">FontFamily</p>
+                    <p class="tablinks"
+                       onclick="openCity(event, 'FontSize')">FontSize</p>
+                    <p class="tablinks"
+                       onclick="openCity(event, 'Color')">Color</p>
+                    <p class="tablinks"
+                       onclick="openCity(event, 'BackgroundColor')">BackgroundColor</p>
+                </div>
+                <div class="SideBarDetail">
+                    <div id="FontFamily"
+                         class="tabcontent">
+                        <div class="TextFontFamily">
+                            TextFontFamily : <br><input id="TextFontFamily"
+                                   oninput="TextFontFamily()">
+                        </div>
+                    </div>
+                    <div id="FontSize"
+                         class="tabcontent">
+                        <div class="TextFontSize">
+                            TextFontSize : <br><input id="TextFontSize"
+                                   oninput="TextFontSize()">
+                        </div>
+                    </div>
+                    <div id="Color"
+                         class="tabcontent">
+                        <div class="TextColor">
+                            TextColor : <br><input id="TextColor"
+                                   oninput="TextColor()">
+                        </div>
+                    </div>
+                    <div id="BackgroundColor"
+                         class="tabcontent">
+                        <div class="TextBackgroundColor">
+                            TextBackgroundColor : <br><input id="TextBackgroundColor"
+                                   oninput="TextBackgroundColor()">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
 </body>
 <script>
+
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    document.getElementById("defaultOpen").click();
 
     function TextFontFamily() {
         var TextFontFamily = document.getElementById("TextFontFamily").value;
