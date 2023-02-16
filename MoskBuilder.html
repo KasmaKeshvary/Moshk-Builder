@@ -174,7 +174,9 @@
         border-collapse: collapse;
     }
 
-    .TableMain thead  th , tbody th,td {
+    .TableMain thead th,
+    tbody th,
+    td {
         text-align: center;
         border-bottom: 2px solid #2b2c2e;
         padding: 2% 0% 2% 0%;
@@ -186,7 +188,8 @@
         color: white;
     }
 
-    .TablePrimary:hover,.TableSecondary:hover{
+    .TablePrimary:hover,
+    .TableSecondary:hover {
         opacity: 0.5;
     }
 
@@ -195,6 +198,39 @@
         color: white;
     }
 
+    .Forms {
+        margin: 0% 2% 0% 2%;
+    }
+
+    .FormEmailAddress,
+    .FormSelect,
+    .FormMultipleSelect,
+    .FormTextarea {
+        width: 50%;
+    }
+
+    .FormsLegend {
+        margin: 2% 0% 2% 0%;
+    }
+
+    .FormsInput,
+    .FormExampleSelect,
+    .FormExamplemultipleSelect {
+        width: 30%;
+        height: calc(1.5em + 0.75rem + 2px);
+        padding: 0.375rem 0.75rem;
+    }
+
+    .FormSmall {
+        color: #6c757d;
+        font-size: 80%;
+        font-weight: 400;
+    }
+
+    .FormExamplemultipleSelect,
+    .FormExampleTextarea {
+        height: 10vh;
+    }
 
     .Side {
         width: 20%;
@@ -242,7 +278,7 @@
         width: 50%;
     }
 
-    input {
+    .SideBarDetailInput {
         width: 50%;
     }
 
@@ -350,6 +386,47 @@
                     </tr>
                 </table>
             </div>
+            <div class="Forms">
+                <h2>Forms</h2>
+                <form>
+                    <div class="flex-container">
+                        <div class="FormEmailAddress">
+                            <legend class="FormsLegend">Email Address:</legend>
+                            <input placeholder="Enter Email"
+                                   class="FormsInput"><br>
+                            <small class="FormSmall">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="FormSelect">
+                            <legend class="FormsLegend">Example Select</legend>
+                            <select class="FormExampleSelect">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex-container">
+                        <div class="FormMultipleSelect">
+                            <legend class="FormsLegend">Example Multiple Select</legend>
+                            <select multiple
+                                    class="FormExamplemultipleSelect">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="FormTextarea">
+                            <legend class="FormsLegend">Example Textarea</legend>
+                            <textarea class="FormExampleTextarea">
+                        </textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
 
         <div class="Side">
@@ -373,6 +450,7 @@
                          class="tabcontent">
                         <div class="TextFontFamily">
                             TextFontFamily : <br><input id="TextFontFamily"
+                                   class="SideBarDetailInput"
                                    oninput="TextFontFamily()">
                         </div>
                     </div>
@@ -380,6 +458,7 @@
                          class="tabcontent">
                         <div class="TextFontSize">
                             TextFontSize : <br><input id="TextFontSize"
+                                   class="SideBarDetailInput"
                                    oninput="TextFontSize()">
                         </div>
                     </div>
@@ -387,6 +466,7 @@
                          class="tabcontent">
                         <div class="TextColor">
                             TextColor : <br><input id="TextColor"
+                                   class="SideBarDetailInput"
                                    oninput="TextColor()">
                         </div>
                     </div>
@@ -394,6 +474,7 @@
                          class="tabcontent">
                         <div class="TextBackgroundColor">
                             TextBackgroundColor : <br><input id="TextBackgroundColor"
+                                   class="SideBarDetailInput"
                                    oninput="TextBackgroundColor()">
                         </div>
                     </div>
