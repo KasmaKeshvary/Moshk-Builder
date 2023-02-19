@@ -84,7 +84,7 @@
         margin: 0% 2% 0% 2%;
     }
 
-    ul {
+    .ulnavbarfirst {
         list-style-type: none;
         margin: 0;
         padding: 0;
@@ -93,16 +93,17 @@
         border-radius: 5px;
     }
 
-    li {
+    .linavbarfirst {
         float: left;
         border-right: 1px solid #bbb;
     }
 
-    li:last-child {
+    .linavbarfirst:last-child {
         border-right: none;
+        float: right;
     }
 
-    li a {
+    .linavbarfirst a {
         display: block;
         color: white;
         text-align: center;
@@ -110,7 +111,7 @@
         text-decoration: none;
     }
 
-    li a:hover:not(.active) {
+    .linavbarfirst a:hover:not(.active) {
         background-color: #111;
     }
 
@@ -232,6 +233,96 @@
         height: 10vh;
     }
 
+    .DropdownToggles {
+        margin: 0% 2% 0% 2%;
+    }
+
+    .ulDropdownToggles {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        background-color: #333;
+        border-radius: 5px;
+    }
+
+
+    .liDropdownToggles {
+        float: left;
+        background-color: #3498DB;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .liDropdownToggles:first-child {
+        border-radius: 5px 0px 0px 5px;
+    }
+
+    .liDropdownToggles:last-child {
+        border-radius: 0px 5px 5px 0px;
+    }
+
+    .liDropdownToggles a:hover {
+        color: black;
+        text-decoration: none;
+        display: block;
+    }
+
+
+    .dropbtn {
+        background-color: #3498DB;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .dropbtn:hover,
+    .dropbtn:focus {
+        color: black;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        border-radius: 5px 5px 5px 5px;
+        z-index: 1000;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown a:hover {
+        background-color: #ddd;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .HomeText {
+        display: block;
+    }
+
+    .ProfileText {
+        display: none;
+    }
+
     .Side {
         width: 20%;
         border: solid rgb(226, 211, 211);
@@ -322,13 +413,13 @@
             </div>
             <div class="Navbar">
                 <h2>Navbar</h2>
-                <ul>
-                    <li><a class="active"
-                           href="#home">Home</a></li>
-                    <li><a href="#news">News</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li style="float:right"><a href="#about">About</a></li>
+                <ul class="ulnavbarfirst">
+                    <li class="linavbarfirst"><a class="active">Home</a></li>
+                    <li class="linavbarfirst"><a>News</a></li>
+                    <li class="linavbarfirst"><a>Contact</a></li>
+                    <li class="linavbarfirst"><a>About</a></li>
                 </ul>
+
                 <div class="navbarsecond">
                     <a class="active"
                        href="#"><i class="fa fa-fw fa-home"></i> Home</a>
@@ -427,6 +518,46 @@
                     </div>
                 </form>
             </div>
+            <div class="DropdownToggles">
+                <h2>Dropdown & Toggles</h2>
+                <ul class="ulDropdownToggles">
+                    <li class="liDropdownToggles"><a onclick="HomeText()">Home</a></li>
+                    <li class="liDropdownToggles"><a onclick="ProfileText()">Profile</a></li>
+                    <li class="liDropdownToggles">
+                        <div class="dropdown">
+                            <button onclick="dropdown()"
+                                    class="dropbtn">Dropdown</button>
+                            <div id="myDropdown"
+                                 class="dropdown-content">
+                                <a>Home</a>
+                                <a>About</a>
+                                <a>Contact</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="HomeText"
+                     id="hometext">
+                    <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua,
+                        retro
+                        synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit
+                        butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson
+                        ex
+                        squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel,
+                        butcher
+                        voluptate nisi qui.</p>
+                </div>
+                <div class="ProfileText"
+                     id="profiletext">
+                    <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.
+                        Exercitation
+                        +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
+                        farm-to-table
+                        craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
+                        ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus
+                        mollit.</p>
+                </div>
+            </div>
         </div>
 
         <div class="Side">
@@ -485,6 +616,35 @@
 
 </body>
 <script>
+
+    function dropdown() {
+        document.getElementById("myDropdown").classList.toggle("show");
+        console.log(document.getElementById("myDropdown").classList);
+    }
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+
+    let hometext = document.getElementById('hometext');
+    let profiletext = document.getElementById('profiletext');
+    function HomeText() {
+        hometext.style.display = 'block';
+        profiletext.style.display = 'none';
+    }
+    function ProfileText() {
+        hometext.style.display = 'none';
+        profiletext.style.display = 'block';
+    }
+
 
     function openSection(evt, SectionName) {
         var i, tabcontent, tablinks;
@@ -546,6 +706,9 @@
             btn[i].style.backgroundColor = TextBackgroundColor;
         }
     }
+
+
+
 
 </script>
 
