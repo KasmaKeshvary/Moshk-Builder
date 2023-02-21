@@ -42,42 +42,76 @@
         margin: 1% 0% 1% 0%;
     }
 
-    .Primary {
+    .Primary,
+    .Secondary,
+    .Success,
+    .Info,
+    .Danger {
         border-radius: 5px;
         border: none;
-        background-color: rgb(0, 81, 255);
         font-size: 20px;
         color: white;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .Primary {
+        background-color: rgb(0, 81, 255);
     }
 
     .Secondary {
-        border-radius: 5px;
-        border: none;
         background-color: rgb(255, 123, 0);
-        font-size: 20px;
-        color: white;
     }
+
+    .Success {
+        background-color: green;
+    }
+
+    .Info {
+        background-color: #048caa;
+    }
+
+    .Danger {
+        background-color: red;
+    }
+
 
     .SubButtonsPale {
         margin: 1% 0% 1% 0%;
     }
 
-    .PrimaryPale {
+    .PrimaryPale,
+    .SecondaryPale,
+    .SuccessPale,
+    .InfoPale,
+    .DangerPale {
         border-radius: 5px;
         border: none;
-        background-color: rgb(0, 81, 255);
         font-size: 20px;
         color: white;
         opacity: 0.5;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .PrimaryPale {
+        background-color: rgb(0, 81, 255);
     }
 
     .SecondaryPale {
-        border-radius: 5px;
-        border: none;
         background-color: rgb(255, 123, 0);
-        font-size: 20px;
-        color: white;
-        opacity: 0.5;
+    }
+
+    .SuccessPale {
+        background-color: green;
+    }
+
+    .InfoPale {
+        background-color: #048caa;
+    }
+
+    .DangerPale {
+        background-color: red;
     }
 
     .Navbar {
@@ -89,7 +123,7 @@
         margin: 0;
         padding: 0;
         overflow: hidden;
-        background-color: #333;
+        background-color: rgb(0, 68, 214);
         border-radius: 5px;
     }
 
@@ -116,7 +150,7 @@
     }
 
     .active {
-        background-color: #04aa97;
+        background-color: rgb(255, 123, 0);
         color: black;
     }
 
@@ -336,6 +370,11 @@
         margin: 5px;
     }
 
+    .CardsPrimary:hover,
+    .CardsSecondary:hover {
+        opacity: 0.5;
+    }
+
     .CardsSecondary {
         background-color: rgb(255, 123, 0);
         width: 20%;
@@ -345,7 +384,7 @@
         margin: 5px;
     }
 
-    .CardsHeader{
+    .CardsHeader {
         border-bottom: solid 1px;
     }
 
@@ -449,12 +488,24 @@
                             class="Primary">Primary</button>
                     <button type="button"
                             class="Secondary">Secondary</button>
+                    <button type="button"
+                            class="Success">Success</button>
+                    <button type="button"
+                            class="Info">Info</button>
+                    <button type="button"
+                            class="Danger">Danger</button>
                 </div>
                 <div class="SubButtonsPale">
                     <button type="button"
                             class="PrimaryPale">Primary</button>
                     <button type="button"
                             class="SecondaryPale">Secondary</button>
+                    <button type="button"
+                            class="SuccessPale">SuccessPale</button>
+                    <button type="button"
+                            class="InfoPale">InfoPale</button>
+                    <button type="button"
+                            class="DangerPale">DangerPale</button>
                 </div>
             </div>
             <div class="Navbar">
@@ -467,11 +518,10 @@
                 </ul>
 
                 <div class="navbarsecond">
-                    <a class="active"
-                       href="#"><i class="fa fa-fw fa-home"></i> Home</a>
-                    <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
-                    <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
-                    <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+                    <a class="active"><i class="fa fa-fw fa-home"></i> Home</a>
+                    <a><i class="fa fa-fw fa-search"></i> Search</a>
+                    <a><i class="fa fa-fw fa-envelope"></i> Contact</a>
+                    <a><i class="fa fa-fw fa-user"></i> Login</a>
                 </div>
             </div>
             <div class="Typography">
@@ -609,7 +659,7 @@
                 <div class="flex-container">
                     <div class="CardsPrimary">
                         <div class="CardsHeader">
-                        <p>Header</p>
+                            <p>Header</p>
                         </div>
                         <h3>Primary card title</h3>
                         <p>Some quick example text to build on the card title and make up the bulk of the card's
@@ -617,7 +667,7 @@
                     </div>
                     <div class="CardsSecondary">
                         <div class="CardsHeader">
-                        <p>Header</p>
+                            <p>Header</p>
                         </div>
                         <h3>Secondary card title</h3>
                         <p>Some quick example text to build on the card title and make up the bulk of the card's
@@ -634,6 +684,7 @@
                 <a class="Paginationlinks">4</a>
                 <a class="Paginationlinks">5</a>
                 <a class="Paginationlinks">6</a>
+                <a class="Paginationlinks">7</a>
                 <a class="NextPage">&raquo;</a>
             </div>
         </div>
@@ -741,69 +792,35 @@
     }
 
     let Paginationlinks = document.getElementsByClassName("Paginationlinks");
+    let PreviousPage = document.getElementsByClassName("PreviousPage");
+    let NextPage = document.getElementsByClassName("NextPage");
     var clicks = 0;
 
-    document.getElementsByClassName("PreviousPage")[0].onclick = function previouspage() {
-        console.log(Paginationlinks[0]);
+    PreviousPage[0].addEventListener("click", function previouspage() {
         clicks += 1;
-        let i = clicks;
-        Paginationlinks[Paginationlinks.length - i].style.backgroundColor = "green";
-        Paginationlinks[Paginationlinks.length - i + 1].style.backgroundColor = "white";
-    }
+        let i = Paginationlinks.length - clicks;
+        Paginationlinks[i].style.backgroundColor = "green";
+        Paginationlinks[i + 1].style.backgroundColor = "white";
+    });
+
+    // NextPage[0].addEventListener("click", function NextPage() {
+    //         clicks += 1;
+    //         let i = Paginationlinks.length - clicks;
+    //         Paginationlinks[i - Paginationlinks.length].style.backgroundColor = "green";
+    //         Paginationlinks[i + 1 - Paginationlinks.length].style.backgroundColor = "white";
+    //     });
 
 
-    Paginationlinks[0].onclick = function pagination() {
-        Paginationlinks[0].style.backgroundColor = "green";
-        Paginationlinks[1].style.backgroundColor = "white";
-        Paginationlinks[2].style.backgroundColor = "white";
-        Paginationlinks[3].style.backgroundColor = "white";
-        Paginationlinks[4].style.backgroundColor = "white";
-        Paginationlinks[5].style.backgroundColor = "white";
-    }
-
-    Paginationlinks[1].onclick = function pagination() {
-        Paginationlinks[1].style.backgroundColor = "green";
-        Paginationlinks[0].style.backgroundColor = "white";
-        Paginationlinks[2].style.backgroundColor = "white";
-        Paginationlinks[3].style.backgroundColor = "white";
-        Paginationlinks[4].style.backgroundColor = "white";
-        Paginationlinks[5].style.backgroundColor = "white";
-    }
-
-    Paginationlinks[2].onclick = function pagination() {
-        Paginationlinks[2].style.backgroundColor = "green";
-        Paginationlinks[0].style.backgroundColor = "white";
-        Paginationlinks[1].style.backgroundColor = "white";
-        Paginationlinks[3].style.backgroundColor = "white";
-        Paginationlinks[4].style.backgroundColor = "white";
-        Paginationlinks[5].style.backgroundColor = "white";
-    }
-
-    Paginationlinks[3].onclick = function pagination() {
-        Paginationlinks[3].style.backgroundColor = "green";
-        Paginationlinks[0].style.backgroundColor = "white";
-        Paginationlinks[1].style.backgroundColor = "white";
-        Paginationlinks[2].style.backgroundColor = "white";
-        Paginationlinks[4].style.backgroundColor = "white";
-        Paginationlinks[5].style.backgroundColor = "white";
-    }
-
-    Paginationlinks[4].onclick = function pagination() {
-        Paginationlinks[4].style.backgroundColor = "green";
-        Paginationlinks[0].style.backgroundColor = "white";
-        Paginationlinks[1].style.backgroundColor = "white";
-        Paginationlinks[2].style.backgroundColor = "white";
-        Paginationlinks[3].style.backgroundColor = "white";
-        Paginationlinks[5].style.backgroundColor = "white";
-    }
-
-    Paginationlinks[5].onclick = function pagination() {
-        Paginationlinks[5].style.backgroundColor = "green";
-        Paginationlinks[0].style.backgroundColor = "white";
-        Paginationlinks[1].style.backgroundColor = "white";
-        Paginationlinks[2].style.backgroundColor = "white";
-        Paginationlinks[3].style.backgroundColor = "white";
-        Paginationlinks[4].style.backgroundColor = "white";
+    for (let j = 0; j < Paginationlinks.length; j++) {
+        Paginationlinks[j].addEventListener("click", function pagination() {
+            Paginationlinks[j].style.backgroundColor = "green";
+            for (let i = 0; i < Paginationlinks.length; i++) {
+                if (i == j) {
+                    i = i + 1;
+                }
+                Paginationlinks[i].style.backgroundColor = "white";
+            }
+        });
     }
 
     function openSection(evt, SectionName) {
