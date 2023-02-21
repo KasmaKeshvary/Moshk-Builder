@@ -116,7 +116,8 @@
     }
 
     .active {
-        background-color: #04AA6D;
+        background-color: #04aa97;
+        color: black;
     }
 
     .navbarsecond {
@@ -271,7 +272,6 @@
         display: block;
     }
 
-
     .dropbtn {
         background-color: #3498DB;
         color: white;
@@ -321,6 +321,52 @@
 
     .ProfileText {
         display: none;
+    }
+
+    .Cards {
+        margin: 0% 2% 0% 2%;
+    }
+
+    .CardsPrimary {
+        background-color: rgb(0, 81, 255);
+        width: 20%;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 5px;
+    }
+
+    .CardsSecondary {
+        background-color: rgb(255, 123, 0);
+        width: 20%;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 5px;
+    }
+
+    .CardsHeader{
+        border-bottom: solid 1px;
+    }
+
+    .Pagination {
+        margin: 0% 2% 0% 2%;
+        display: inline-block;
+    }
+
+    .Pagination a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        border: solid 1px;
+        border-radius: 5px;
+    }
+
+    .Pagination a:hover {
+        background-color: #ddd;
+        border-radius: 5px;
+        border: solid 1px;
     }
 
     .Side {
@@ -558,6 +604,38 @@
                         mollit.</p>
                 </div>
             </div>
+            <div class="Cards">
+                <h2>Cards</h2>
+                <div class="flex-container">
+                    <div class="CardsPrimary">
+                        <div class="CardsHeader">
+                        <p>Header</p>
+                        </div>
+                        <h3>Primary card title</h3>
+                        <p>Some quick example text to build on the card title and make up the bulk of the card's
+                            content.</p>
+                    </div>
+                    <div class="CardsSecondary">
+                        <div class="CardsHeader">
+                        <p>Header</p>
+                        </div>
+                        <h3>Secondary card title</h3>
+                        <p>Some quick example text to build on the card title and make up the bulk of the card's
+                            content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="Pagination">
+                <h2>Pagination</h2>
+                <a class="PreviousPage">&laquo;</a>
+                <a class="Paginationlinks">1</a>
+                <a class="Paginationlinks">2</a>
+                <a class="Paginationlinks">3</a>
+                <a class="Paginationlinks">4</a>
+                <a class="Paginationlinks">5</a>
+                <a class="Paginationlinks">6</a>
+                <a class="NextPage">&raquo;</a>
+            </div>
         </div>
 
         <div class="Side">
@@ -617,10 +695,38 @@
 </body>
 <script>
 
+    let hometext = document.getElementById('hometext');
+    let profiletext = document.getElementById('profiletext');
+
+    function HomeText() {
+        hometext.style.display = 'block';
+        profiletext.style.display = 'none';
+        document.getElementsByClassName("liDropdownToggles")[0].style.backgroundColor = "green";
+        document.getElementsByClassName("liDropdownToggles")[0].style.color = "black";
+        document.getElementsByClassName("liDropdownToggles")[1].style.backgroundColor = '#3498DB';
+        document.getElementsByClassName("liDropdownToggles")[2].style.backgroundColor = '#3498DB';
+        document.getElementsByClassName("dropbtn")[0].style.backgroundColor = "#3498DB";
+    }
+    function ProfileText() {
+        hometext.style.display = 'none';
+        profiletext.style.display = 'block';
+        document.getElementsByClassName("liDropdownToggles")[1].style.backgroundColor = "green";
+        document.getElementsByClassName("liDropdownToggles")[1].style.color = "black";
+        document.getElementsByClassName("liDropdownToggles")[0].style.backgroundColor = '#3498DB';
+        document.getElementsByClassName("liDropdownToggles")[2].style.backgroundColor = '#3498DB';
+        document.getElementsByClassName("dropbtn")[0].style.backgroundColor = "#3498DB";
+    }
+
+
     function dropdown() {
         document.getElementById("myDropdown").classList.toggle("show");
-        console.log(document.getElementById("myDropdown").classList);
+        document.getElementsByClassName("liDropdownToggles")[2].style.backgroundColor = "green";
+        document.getElementsByClassName("dropbtn")[0].style.backgroundColor = "green";
+        document.getElementsByClassName("dropbtn")[0].style.color = "black";
+        document.getElementsByClassName("liDropdownToggles")[0].style.backgroundColor = '#3498DB';
+        document.getElementsByClassName("liDropdownToggles")[1].style.backgroundColor = '#3498DB';
     }
+
     window.onclick = function (event) {
         if (!event.target.matches('.dropbtn')) {
             var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -634,17 +740,71 @@
         }
     }
 
-    let hometext = document.getElementById('hometext');
-    let profiletext = document.getElementById('profiletext');
-    function HomeText() {
-        hometext.style.display = 'block';
-        profiletext.style.display = 'none';
-    }
-    function ProfileText() {
-        hometext.style.display = 'none';
-        profiletext.style.display = 'block';
+    let Paginationlinks = document.getElementsByClassName("Paginationlinks");
+    var clicks = 0;
+
+    document.getElementsByClassName("PreviousPage")[0].onclick = function previouspage() {
+        console.log(Paginationlinks[0]);
+        clicks += 1;
+        let i = clicks;
+        Paginationlinks[Paginationlinks.length - i].style.backgroundColor = "green";
+        Paginationlinks[Paginationlinks.length - i + 1].style.backgroundColor = "white";
     }
 
+
+    Paginationlinks[0].onclick = function pagination() {
+        Paginationlinks[0].style.backgroundColor = "green";
+        Paginationlinks[1].style.backgroundColor = "white";
+        Paginationlinks[2].style.backgroundColor = "white";
+        Paginationlinks[3].style.backgroundColor = "white";
+        Paginationlinks[4].style.backgroundColor = "white";
+        Paginationlinks[5].style.backgroundColor = "white";
+    }
+
+    Paginationlinks[1].onclick = function pagination() {
+        Paginationlinks[1].style.backgroundColor = "green";
+        Paginationlinks[0].style.backgroundColor = "white";
+        Paginationlinks[2].style.backgroundColor = "white";
+        Paginationlinks[3].style.backgroundColor = "white";
+        Paginationlinks[4].style.backgroundColor = "white";
+        Paginationlinks[5].style.backgroundColor = "white";
+    }
+
+    Paginationlinks[2].onclick = function pagination() {
+        Paginationlinks[2].style.backgroundColor = "green";
+        Paginationlinks[0].style.backgroundColor = "white";
+        Paginationlinks[1].style.backgroundColor = "white";
+        Paginationlinks[3].style.backgroundColor = "white";
+        Paginationlinks[4].style.backgroundColor = "white";
+        Paginationlinks[5].style.backgroundColor = "white";
+    }
+
+    Paginationlinks[3].onclick = function pagination() {
+        Paginationlinks[3].style.backgroundColor = "green";
+        Paginationlinks[0].style.backgroundColor = "white";
+        Paginationlinks[1].style.backgroundColor = "white";
+        Paginationlinks[2].style.backgroundColor = "white";
+        Paginationlinks[4].style.backgroundColor = "white";
+        Paginationlinks[5].style.backgroundColor = "white";
+    }
+
+    Paginationlinks[4].onclick = function pagination() {
+        Paginationlinks[4].style.backgroundColor = "green";
+        Paginationlinks[0].style.backgroundColor = "white";
+        Paginationlinks[1].style.backgroundColor = "white";
+        Paginationlinks[2].style.backgroundColor = "white";
+        Paginationlinks[3].style.backgroundColor = "white";
+        Paginationlinks[5].style.backgroundColor = "white";
+    }
+
+    Paginationlinks[5].onclick = function pagination() {
+        Paginationlinks[5].style.backgroundColor = "green";
+        Paginationlinks[0].style.backgroundColor = "white";
+        Paginationlinks[1].style.backgroundColor = "white";
+        Paginationlinks[2].style.backgroundColor = "white";
+        Paginationlinks[3].style.backgroundColor = "white";
+        Paginationlinks[4].style.backgroundColor = "white";
+    }
 
     function openSection(evt, SectionName) {
         var i, tabcontent, tablinks;
