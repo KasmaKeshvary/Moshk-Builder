@@ -56,11 +56,11 @@
     }
 
     .Primary {
-        background-color: rgb(0, 81, 255);
+        background-color: #3C87BF;
     }
 
     .Secondary {
-        background-color: rgb(255, 123, 0);
+        background-color: #E7B65E;
     }
 
     .Success {
@@ -95,11 +95,11 @@
     }
 
     .PrimaryPale {
-        background-color: rgb(0, 81, 255);
+        background-color: #3C87BF;
     }
 
     .SecondaryPale {
-        background-color: rgb(255, 123, 0);
+        background-color: #E7B65E;
     }
 
     .SuccessPale {
@@ -123,7 +123,7 @@
         margin: 0;
         padding: 0;
         overflow: hidden;
-        background-color: rgb(0, 68, 214);
+        background-color: #3C87BF;
         border-radius: 5px;
     }
 
@@ -146,17 +146,17 @@
     }
 
     .linavbarfirst a:hover:not(.active) {
-        background-color: #111;
+        background-color: #619EC9;
     }
 
     .active {
-        background-color: rgb(255, 123, 0);
+        background-color: #E7B65E;
         color: black;
     }
 
     .navbarsecond {
         width: 100%;
-        background-color: #48539a;
+        background-color: #E7B65E;
         overflow: auto;
         margin: 1% 0% 1% 0%;
         border-radius: 5px;
@@ -171,11 +171,11 @@
     }
 
     .navbarsecond a:hover {
-        background-color: #0bdeed;
+        background-color: #619EC9;
     }
 
     .navbarsecond .active {
-        background-color: #048caa;
+        background-color: #3C87BF;
     }
 
     @media screen and (max-width: 500px) {
@@ -220,7 +220,7 @@
 
 
     .TablePrimary {
-        background-color: rgb(0, 81, 255);
+        background-color: #3C87BF;
         color: white;
     }
 
@@ -230,7 +230,7 @@
     }
 
     .TableSecondary {
-        background-color: rgb(255, 123, 0);
+        background-color: #E7B65E;
         color: white;
     }
 
@@ -277,14 +277,14 @@
         list-style-type: none;
         margin: 0;
         padding: 0;
-        background-color: #333;
+        background-color: #E7B65E;
         border-radius: 5px;
     }
 
 
     .liDropdownToggles {
         float: left;
-        background-color: #3498DB;
+        background-color: #3C87BF;
         color: white;
         padding: 16px;
         font-size: 16px;
@@ -307,7 +307,7 @@
     }
 
     .dropbtn {
-        background-color: #3498DB;
+        background-color: #3C87BF;
         color: white;
         border: none;
         cursor: pointer;
@@ -362,7 +362,7 @@
     }
 
     .CardsPrimary {
-        background-color: rgb(0, 81, 255);
+        background-color: #3C87BF;
         width: 20%;
         color: white;
         padding: 10px;
@@ -376,7 +376,7 @@
     }
 
     .CardsSecondary {
-        background-color: rgb(255, 123, 0);
+        background-color: #E7B65E;
         width: 20%;
         color: white;
         padding: 10px;
@@ -752,30 +752,30 @@
     function HomeText() {
         hometext.style.display = 'block';
         profiletext.style.display = 'none';
-        document.getElementsByClassName("liDropdownToggles")[0].style.backgroundColor = "green";
+        document.getElementsByClassName("liDropdownToggles")[0].style.backgroundColor = "#E7B65E";
         document.getElementsByClassName("liDropdownToggles")[0].style.color = "black";
-        document.getElementsByClassName("liDropdownToggles")[1].style.backgroundColor = '#3498DB';
-        document.getElementsByClassName("liDropdownToggles")[2].style.backgroundColor = '#3498DB';
-        document.getElementsByClassName("dropbtn")[0].style.backgroundColor = "#3498DB";
+        document.getElementsByClassName("liDropdownToggles")[1].style.backgroundColor = '#3C87BF';
+        document.getElementsByClassName("liDropdownToggles")[2].style.backgroundColor = '#3C87BF';
+        document.getElementsByClassName("dropbtn")[0].style.backgroundColor = "#3C87BF";
     }
     function ProfileText() {
         hometext.style.display = 'none';
         profiletext.style.display = 'block';
-        document.getElementsByClassName("liDropdownToggles")[1].style.backgroundColor = "green";
+        document.getElementsByClassName("liDropdownToggles")[1].style.backgroundColor = "#E7B65E";
         document.getElementsByClassName("liDropdownToggles")[1].style.color = "black";
-        document.getElementsByClassName("liDropdownToggles")[0].style.backgroundColor = '#3498DB';
-        document.getElementsByClassName("liDropdownToggles")[2].style.backgroundColor = '#3498DB';
-        document.getElementsByClassName("dropbtn")[0].style.backgroundColor = "#3498DB";
+        document.getElementsByClassName("liDropdownToggles")[0].style.backgroundColor = '#3C87BF';
+        document.getElementsByClassName("liDropdownToggles")[2].style.backgroundColor = '#3C87BF';
+        document.getElementsByClassName("dropbtn")[0].style.backgroundColor = "#3C87BF";
     }
 
 
     function dropdown() {
         document.getElementById("myDropdown").classList.toggle("show");
-        document.getElementsByClassName("liDropdownToggles")[2].style.backgroundColor = "green";
-        document.getElementsByClassName("dropbtn")[0].style.backgroundColor = "green";
+        document.getElementsByClassName("liDropdownToggles")[2].style.backgroundColor = "#E7B65E";
+        document.getElementsByClassName("dropbtn")[0].style.backgroundColor = "#E7B65E";
         document.getElementsByClassName("dropbtn")[0].style.color = "black";
-        document.getElementsByClassName("liDropdownToggles")[0].style.backgroundColor = '#3498DB';
-        document.getElementsByClassName("liDropdownToggles")[1].style.backgroundColor = '#3498DB';
+        document.getElementsByClassName("liDropdownToggles")[0].style.backgroundColor = '#3C87BF';
+        document.getElementsByClassName("liDropdownToggles")[1].style.backgroundColor = '#3C87BF';
     }
 
     window.onclick = function (event) {
@@ -799,7 +799,7 @@
     PreviousPage[0].addEventListener("click", function previouspage() {
         clicks += 1;
         let i = Paginationlinks.length - clicks;
-        Paginationlinks[i].style.backgroundColor = "green";
+        Paginationlinks[i].style.backgroundColor = "#E7B65E";
         Paginationlinks[i + 1].style.backgroundColor = "white";
     });
 
@@ -813,7 +813,7 @@
 
     for (let j = 0; j < Paginationlinks.length; j++) {
         Paginationlinks[j].addEventListener("click", function pagination() {
-            Paginationlinks[j].style.backgroundColor = "green";
+            Paginationlinks[j].style.backgroundColor = "#E7B65E";
             for (let i = 0; i < Paginationlinks.length; i++) {
                 if (i == j) {
                     i = i + 1;
