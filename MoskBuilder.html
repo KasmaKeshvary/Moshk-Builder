@@ -145,11 +145,11 @@
         text-decoration: none;
     }
 
-    .linavbarfirst a:hover:not(.active) {
-        background-color: #619EC9;
+    .linavbarfirst a:hover {
+        background-color: #ebc884;
     }
 
-    .active {
+    .linavbarfirst .active {
         background-color: #E7B65E;
         color: black;
     }
@@ -277,7 +277,7 @@
         list-style-type: none;
         margin: 0;
         padding: 0;
-        background-color: #E7B65E;
+        background-color: #ebc884;
         border-radius: 5px;
     }
 
@@ -772,10 +772,10 @@
     function dropdown() {
         document.getElementById("myDropdown").classList.toggle("show");
         document.getElementsByClassName("liDropdownToggles")[2].style.backgroundColor = "#E7B65E";
-        document.getElementsByClassName("dropbtn")[0].style.backgroundColor = "#E7B65E";
-        document.getElementsByClassName("dropbtn")[0].style.color = "black";
         document.getElementsByClassName("liDropdownToggles")[0].style.backgroundColor = '#3C87BF';
         document.getElementsByClassName("liDropdownToggles")[1].style.backgroundColor = '#3C87BF';
+        document.getElementsByClassName("dropbtn")[0].style.backgroundColor = "#E7B65E";
+        document.getElementsByClassName("dropbtn")[0].style.color = "black";
     }
 
     window.onclick = function (event) {
