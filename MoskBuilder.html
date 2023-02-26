@@ -678,13 +678,14 @@
             <div class="Pagination">
                 <h2>Pagination</h2>
                 <a class="PreviousPage">&laquo;</a>
-                <a class="Paginationlinks">1</a>
-                <a class="Paginationlinks">2</a>
-                <a class="Paginationlinks">3</a>
-                <a class="Paginationlinks">4</a>
-                <a class="Paginationlinks">5</a>
-                <a class="Paginationlinks">6</a>
-                <a class="Paginationlinks">7</a>
+                <span><a class="Paginationlinks">1</a>
+                    <a class="Paginationlinks">2</a>
+                    <a class="Paginationlinks">3</a>
+                    <a class="Paginationlinks">4</a>
+                    <a class="Paginationlinks">5</a>
+                    <a class="Paginationlinks">6</a>
+                    <a class="Paginationlinks">7</a>
+                </span>
                 <a class="NextPage">&raquo;</a>
             </div>
         </div>
@@ -794,34 +795,36 @@
     let Paginationlinks = document.getElementsByClassName("Paginationlinks");
     let PreviousPage = document.getElementsByClassName("PreviousPage");
     let NextPage = document.getElementsByClassName("NextPage");
-    var clicks = 0;
+    var curPage = 0;
+    Paginationlinks[curPage].style.backgroundColor = "#E7B65E";
 
-    PreviousPage[0].addEventListener("click", function previouspage() {
-        clicks += 1;
-        let i = Paginationlinks.length - clicks;
-        Paginationlinks[i].style.backgroundColor = "#E7B65E";
-        Paginationlinks[i + 1].style.backgroundColor = "white";
-    });
-
-    // NextPage[0].addEventListener("click", function NextPage() {
-    //         clicks += 1;
-    //         let i = Paginationlinks.length - clicks;
-    //         Paginationlinks[i - Paginationlinks.length].style.backgroundColor = "green";
-    //         Paginationlinks[i + 1 - Paginationlinks.length].style.backgroundColor = "white";
-    //     });
-
+    function pagination(e) {
+        var el = e.currentTarget;
+        let oldPage = curPage;
+        curPage = [...el.parentElement.children].indexOf(el);
+        Paginationlinks[oldPage].style.backgroundColor = "white";
+        Paginationlinks[curPage].style.backgroundColor = "#E7B65E";
+    }
 
     for (let j = 0; j < Paginationlinks.length; j++) {
-        Paginationlinks[j].addEventListener("click", function pagination() {
-            Paginationlinks[j].style.backgroundColor = "#E7B65E";
-            for (let i = 0; i < Paginationlinks.length; i++) {
-                if (i == j) {
-                    i = i + 1;
-                }
-                Paginationlinks[i].style.backgroundColor = "white";
-            }
-        });
+        Paginationlinks[j].addEventListener("click", pagination);
     }
+
+    PreviousPage[0].addEventListener("click", function previouspage() {
+        let oldPage = curPage;
+        curPage -= 1;
+        curPage = curPage < 0 ? 0 : curPage;
+        Paginationlinks[oldPage].style.backgroundColor = "white";
+        Paginationlinks[curPage].style.backgroundColor = "#E7B65E";
+    });
+
+    NextPage[0].addEventListener("click", function nextpage() {
+        let oldPage = curPage;
+        curPage += 1;
+        curPage = curPage > (Paginationlinks.length - 1) ? (Paginationlinks.length - 1) : curPage;
+        Paginationlinks[oldPage].style.backgroundColor = "white";
+        Paginationlinks[curPage].style.backgroundColor = "#E7B65E";
+    });
 
     function openSection(evt, SectionName) {
         var i, tabcontent, tablinks;
