@@ -34,6 +34,7 @@
         height: 95vh;
     }
 
+
     .Buttons {
         margin: 0% 2% 0% 2%;
     }
@@ -55,23 +56,23 @@
         cursor: pointer;
     }
 
-    .Primary {
+    .PrimaryBackgroundcolor {
         background-color: #3C87BF;
     }
 
-    .Secondary {
+    .SecondaryBackgroundcolor {
         background-color: #E7B65E;
     }
 
-    .Success {
+    .SuccessBackgroundcolor {
         background-color: green;
     }
 
-    .Info {
+    .InfoBackgroundcolor {
         background-color: #048caa;
     }
 
-    .Danger {
+    .DangerBackgroundcolor {
         background-color: red;
     }
 
@@ -92,26 +93,6 @@
         opacity: 0.5;
         padding: 10px;
         cursor: pointer;
-    }
-
-    .PrimaryPale {
-        background-color: #3C87BF;
-    }
-
-    .SecondaryPale {
-        background-color: #E7B65E;
-    }
-
-    .SuccessPale {
-        background-color: green;
-    }
-
-    .InfoPale {
-        background-color: #048caa;
-    }
-
-    .DangerPale {
-        background-color: red;
     }
 
     .Navbar {
@@ -402,11 +383,9 @@
         border-radius: 5px;
     }
 
-    .Pagination a:hover {
+    /* .Pagination a:hover {
         background-color: #ddd;
-        border-radius: 5px;
-        border: solid 1px;
-    }
+    } */
 
     .Side {
         width: 20%;
@@ -485,27 +464,27 @@
                 <h2>Buttons</h2>
                 <div class="SubButtons">
                     <button type="button"
-                            class="Primary">Primary</button>
+                            class="Primary PrimaryBackgroundcolor">Primary</button>
                     <button type="button"
-                            class="Secondary">Secondary</button>
+                            class="Secondary SecondaryBackgroundcolor">Secondary</button>
                     <button type="button"
-                            class="Success">Success</button>
+                            class="Success SuccessBackgroundcolor">Success</button>
                     <button type="button"
-                            class="Info">Info</button>
+                            class="Info InfoBackgroundcolor">Info</button>
                     <button type="button"
-                            class="Danger">Danger</button>
+                            class="Danger DangerBackgroundcolor">Danger</button>
                 </div>
                 <div class="SubButtonsPale">
                     <button type="button"
-                            class="PrimaryPale">Primary</button>
+                            class="PrimaryPale PrimaryBackgroundcolor">Primary</button>
                     <button type="button"
-                            class="SecondaryPale">Secondary</button>
+                            class="SecondaryPale SecondaryBackgroundcolor">Secondary</button>
                     <button type="button"
-                            class="SuccessPale">SuccessPale</button>
+                            class="SuccessPale SuccessBackgroundcolor">SuccessPale</button>
                     <button type="button"
-                            class="InfoPale">InfoPale</button>
+                            class="InfoPale InfoBackgroundcolor">InfoPale</button>
                     <button type="button"
-                            class="DangerPale">DangerPale</button>
+                            class="DangerPale DangerBackgroundcolor">DangerPale</button>
                 </div>
             </div>
             <div class="Navbar">
@@ -796,14 +775,14 @@
     let PreviousPage = document.getElementsByClassName("PreviousPage");
     let NextPage = document.getElementsByClassName("NextPage");
     var curPage = 0;
-    Paginationlinks[curPage].style.backgroundColor = "#E7B65E";
+    Paginationlinks[curPage].classList.add('SecondaryBackgroundcolor');
 
     function pagination(e) {
         var el = e.currentTarget;
         let oldPage = curPage;
         curPage = [...el.parentElement.children].indexOf(el);
-        Paginationlinks[oldPage].style.backgroundColor = "white";
-        Paginationlinks[curPage].style.backgroundColor = "#E7B65E";
+        Paginationlinks[oldPage].classList.remove ('SecondaryBackgroundcolor');
+        Paginationlinks[curPage].classList.add ('SecondaryBackgroundcolor');
     }
 
     for (let j = 0; j < Paginationlinks.length; j++) {
@@ -814,16 +793,16 @@
         let oldPage = curPage;
         curPage -= 1;
         curPage = curPage < 0 ? 0 : curPage;
-        Paginationlinks[oldPage].style.backgroundColor = "white";
-        Paginationlinks[curPage].style.backgroundColor = "#E7B65E";
+        Paginationlinks[oldPage].classList.remove('SecondaryBackgroundcolor');
+        Paginationlinks[curPage].classList.add('SecondaryBackgroundcolor');
     });
 
     NextPage[0].addEventListener("click", function nextpage() {
         let oldPage = curPage;
         curPage += 1;
         curPage = curPage > (Paginationlinks.length - 1) ? (Paginationlinks.length - 1) : curPage;
-        Paginationlinks[oldPage].style.backgroundColor = "white";
-        Paginationlinks[curPage].style.backgroundColor = "#E7B65E";
+        Paginationlinks[oldPage].classList.remove('SecondaryBackgroundcolor');
+        Paginationlinks[curPage].classList.add('SecondaryBackgroundcolor');
     });
 
     function openSection(evt, SectionName) {
