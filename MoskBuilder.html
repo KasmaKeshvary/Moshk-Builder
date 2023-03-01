@@ -720,29 +720,38 @@
     function HomeText() {
         hometext.style.display = 'block';
         profiletext.style.display = 'none';
-        liDropdownToggles[0].style.backgroundColor = "#E7B65E";
+        liDropdownToggles[0].classList.add('SecondaryBackgroundcolor');
         liDropdownToggles[0].style.color = "black";
-        liDropdownToggles[1].style.backgroundColor = '#3C87BF';
-        liDropdownToggles[2].style.backgroundColor = '#3C87BF';
-        dropbtn[0].style.backgroundColor = "#3C87BF";
+        liDropdownToggles[1].classList.remove('SecondaryBackgroundcolor');
+        liDropdownToggles[1].classList.add('PrimaryBackgroundcolor');
+        liDropdownToggles[2].classList.remove('SecondaryBackgroundcolor');
+        liDropdownToggles[2].classList.add('PrimaryBackgroundcolor');
+        dropbtn[0].classList.remove('SecondaryBackgroundcolor');
+        dropbtn[0].classList.add('PrimaryBackgroundcolor');
     }
     function ProfileText() {
         hometext.style.display = 'none';
         profiletext.style.display = 'block';
-        liDropdownToggles[1].style.backgroundColor = "#E7B65E";
+        liDropdownToggles[1].classList.add('SecondaryBackgroundcolor');
         liDropdownToggles[1].style.color = "black";
-        liDropdownToggles[0].style.backgroundColor = '#3C87BF';
-        liDropdownToggles[2].style.backgroundColor = '#3C87BF';
-        dropbtn[0].style.backgroundColor = "#3C87BF";
+        liDropdownToggles[0].classList.remove('SecondaryBackgroundcolor');
+        liDropdownToggles[0].classList.add('PrimaryBackgroundcolor');
+        liDropdownToggles[2].classList.remove('SecondaryBackgroundcolor');
+        liDropdownToggles[2].classList.add('PrimaryBackgroundcolor');
+        dropbtn[0].classList.remove('SecondaryBackgroundcolor');
+        dropbtn[0].classList.add('PrimaryBackgroundcolor');
     }
 
 
     function dropdown() {
         document.getElementById("myDropdown").classList.toggle("show");
-        liDropdownToggles[2].style.backgroundColor = "#E7B65E";
-        liDropdownToggles[0].style.backgroundColor = '#3C87BF';
-        liDropdownToggles[1].style.backgroundColor = '#3C87BF';
-        dropbtn[0].style.backgroundColor = "#E7B65E";
+        liDropdownToggles[2].classList.add('SecondaryBackgroundcolor');
+        liDropdownToggles[0].classList.remove('SecondaryBackgroundcolor');
+        liDropdownToggles[0].classList.add('PrimaryBackgroundcolor');
+        liDropdownToggles[1].classList.remove('SecondaryBackgroundcolor');
+        liDropdownToggles[1].classList.add('PrimaryBackgroundcolor');
+        dropbtn[0].classList.remove('PrimaryBackgroundcolor');
+        dropbtn[0].classList.add('SecondaryBackgroundcolor');
         dropbtn[0].style.color = "black";
     }
 
