@@ -104,7 +104,6 @@
         margin: 0;
         padding: 0;
         overflow: hidden;
-        background-color: #3C87BF;
         border-radius: 5px;
     }
 
@@ -130,14 +129,9 @@
         background-color: #ebc884;
     }
 
-    .linavbarfirst .active {
-        background-color: #E7B65E;
-        color: black;
-    }
 
     .navbarsecond {
         width: 100%;
-        background-color: #E7B65E;
         overflow: auto;
         margin: 1% 0% 1% 0%;
         border-radius: 5px;
@@ -155,9 +149,7 @@
         background-color: #619EC9;
     }
 
-    .navbarsecond .active {
-        background-color: #3C87BF;
-    }
+
 
     @media screen and (max-width: 500px) {
         .navbarsecond a {
@@ -201,7 +193,6 @@
 
 
     .TablePrimary {
-        background-color: #3C87BF;
         color: white;
     }
 
@@ -211,7 +202,6 @@
     }
 
     .TableSecondary {
-        background-color: #E7B65E;
         color: white;
     }
 
@@ -265,7 +255,6 @@
 
     .liDropdownToggles {
         float: left;
-        background-color: #3C87BF;
         color: white;
         padding: 16px;
         font-size: 16px;
@@ -288,7 +277,6 @@
     }
 
     .dropbtn {
-        background-color: #3C87BF;
         color: white;
         border: none;
         cursor: pointer;
@@ -343,7 +331,6 @@
     }
 
     .CardsPrimary {
-        background-color: #3C87BF;
         width: 20%;
         color: white;
         padding: 10px;
@@ -357,7 +344,6 @@
     }
 
     .CardsSecondary {
-        background-color: #E7B65E;
         width: 20%;
         color: white;
         padding: 10px;
@@ -489,15 +475,15 @@
             </div>
             <div class="Navbar">
                 <h2>Navbar</h2>
-                <ul class="ulnavbarfirst">
-                    <li class="linavbarfirst"><a class="active">Home</a></li>
+                <ul class="ulnavbarfirst PrimaryBackgroundcolor">
+                    <li class="linavbarfirst"><a class="SecondaryBackgroundcolor">Home</a></li>
                     <li class="linavbarfirst"><a>News</a></li>
                     <li class="linavbarfirst"><a>Contact</a></li>
                     <li class="linavbarfirst"><a>About</a></li>
                 </ul>
 
-                <div class="navbarsecond">
-                    <a class="active"><i class="fa fa-fw fa-home"></i> Home</a>
+                <div class="navbarsecond SecondaryBackgroundcolor">
+                    <a class="PrimaryBackgroundcolor"><i class="fa fa-fw fa-home"></i> Home</a>
                     <a><i class="fa fa-fw fa-search"></i> Search</a>
                     <a><i class="fa fa-fw fa-envelope"></i> Contact</a>
                     <a><i class="fa fa-fw fa-user"></i> Login</a>
@@ -538,13 +524,13 @@
                         <td>Column heading</td>
                         <td>Column heading</td>
                     </tr>
-                    <tr class="TablePrimary">
+                    <tr class="TablePrimary PrimaryBackgroundcolor">
                         <th>Primary</th>
                         <td>Column heading</td>
                         <td>Column heading</td>
                         <td>Column heading</td>
                     </tr>
-                    <tr class="TableSecondary">
+                    <tr class="TableSecondary SecondaryBackgroundcolor">
                         <th>Secondary</th>
                         <td>Column heading</td>
                         <td>Column heading</td>
@@ -596,12 +582,12 @@
             <div class="DropdownToggles">
                 <h2>Dropdown & Toggles</h2>
                 <ul class="ulDropdownToggles">
-                    <li class="liDropdownToggles"><a onclick="HomeText()">Home</a></li>
-                    <li class="liDropdownToggles"><a onclick="ProfileText()">Profile</a></li>
-                    <li class="liDropdownToggles">
+                    <li class="liDropdownToggles PrimaryBackgroundcolor"><a onclick="HomeText()">Home</a></li>
+                    <li class="liDropdownToggles PrimaryBackgroundcolor"><a onclick="ProfileText()">Profile</a></li>
+                    <li class="liDropdownToggles PrimaryBackgroundcolor">
                         <div class="dropdown">
                             <button onclick="dropdown()"
-                                    class="dropbtn">Dropdown</button>
+                                    class="dropbtn PrimaryBackgroundcolor">Dropdown</button>
                             <div id="myDropdown"
                                  class="dropdown-content">
                                 <a>Home</a>
@@ -636,7 +622,7 @@
             <div class="Cards">
                 <h2>Cards</h2>
                 <div class="flex-container">
-                    <div class="CardsPrimary">
+                    <div class="CardsPrimary PrimaryBackgroundcolor">
                         <div class="CardsHeader">
                             <p>Header</p>
                         </div>
@@ -644,7 +630,7 @@
                         <p>Some quick example text to build on the card title and make up the bulk of the card's
                             content.</p>
                     </div>
-                    <div class="CardsSecondary">
+                    <div class="CardsSecondary SecondaryBackgroundcolor">
                         <div class="CardsHeader">
                             <p>Header</p>
                         </div>
@@ -728,34 +714,36 @@
 
     let hometext = document.getElementById('hometext');
     let profiletext = document.getElementById('profiletext');
+    let liDropdownToggles = document.getElementsByClassName("liDropdownToggles");
+    let dropbtn = document.getElementsByClassName("dropbtn");
 
     function HomeText() {
         hometext.style.display = 'block';
         profiletext.style.display = 'none';
-        document.getElementsByClassName("liDropdownToggles")[0].style.backgroundColor = "#E7B65E";
-        document.getElementsByClassName("liDropdownToggles")[0].style.color = "black";
-        document.getElementsByClassName("liDropdownToggles")[1].style.backgroundColor = '#3C87BF';
-        document.getElementsByClassName("liDropdownToggles")[2].style.backgroundColor = '#3C87BF';
-        document.getElementsByClassName("dropbtn")[0].style.backgroundColor = "#3C87BF";
+        liDropdownToggles[0].style.backgroundColor = "#E7B65E";
+        liDropdownToggles[0].style.color = "black";
+        liDropdownToggles[1].style.backgroundColor = '#3C87BF';
+        liDropdownToggles[2].style.backgroundColor = '#3C87BF';
+        dropbtn[0].style.backgroundColor = "#3C87BF";
     }
     function ProfileText() {
         hometext.style.display = 'none';
         profiletext.style.display = 'block';
-        document.getElementsByClassName("liDropdownToggles")[1].style.backgroundColor = "#E7B65E";
-        document.getElementsByClassName("liDropdownToggles")[1].style.color = "black";
-        document.getElementsByClassName("liDropdownToggles")[0].style.backgroundColor = '#3C87BF';
-        document.getElementsByClassName("liDropdownToggles")[2].style.backgroundColor = '#3C87BF';
-        document.getElementsByClassName("dropbtn")[0].style.backgroundColor = "#3C87BF";
+        liDropdownToggles[1].style.backgroundColor = "#E7B65E";
+        liDropdownToggles[1].style.color = "black";
+        liDropdownToggles[0].style.backgroundColor = '#3C87BF';
+        liDropdownToggles[2].style.backgroundColor = '#3C87BF';
+        dropbtn[0].style.backgroundColor = "#3C87BF";
     }
 
 
     function dropdown() {
         document.getElementById("myDropdown").classList.toggle("show");
-        document.getElementsByClassName("liDropdownToggles")[2].style.backgroundColor = "#E7B65E";
-        document.getElementsByClassName("liDropdownToggles")[0].style.backgroundColor = '#3C87BF';
-        document.getElementsByClassName("liDropdownToggles")[1].style.backgroundColor = '#3C87BF';
-        document.getElementsByClassName("dropbtn")[0].style.backgroundColor = "#E7B65E";
-        document.getElementsByClassName("dropbtn")[0].style.color = "black";
+        liDropdownToggles[2].style.backgroundColor = "#E7B65E";
+        liDropdownToggles[0].style.backgroundColor = '#3C87BF';
+        liDropdownToggles[1].style.backgroundColor = '#3C87BF';
+        dropbtn[0].style.backgroundColor = "#E7B65E";
+        dropbtn[0].style.color = "black";
     }
 
     window.onclick = function (event) {
@@ -781,8 +769,8 @@
         var el = e.currentTarget;
         let oldPage = curPage;
         curPage = [...el.parentElement.children].indexOf(el);
-        Paginationlinks[oldPage].classList.remove ('SecondaryBackgroundcolor');
-        Paginationlinks[curPage].classList.add ('SecondaryBackgroundcolor');
+        Paginationlinks[oldPage].classList.remove('SecondaryBackgroundcolor');
+        Paginationlinks[curPage].classList.add('SecondaryBackgroundcolor');
     }
 
     for (let j = 0; j < Paginationlinks.length; j++) {
