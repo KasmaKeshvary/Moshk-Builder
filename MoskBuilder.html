@@ -12,6 +12,11 @@
     <title>Moshk-Builder</title>
 </head>
 <style>
+    :root {
+        --Primary: #3C87BF;
+        --Secondary: #E7B65E;
+    }
+
     body {
         margin: 0%;
     }
@@ -57,11 +62,11 @@
     }
 
     .PrimaryBackgroundcolor {
-        background-color: #3C87BF;
+        background-color: var(--Primary);
     }
 
     .SecondaryBackgroundcolor {
-        background-color: #E7B65E;
+        background-color: var(--Secondary);
     }
 
     .SuccessBackgroundcolor {
@@ -248,7 +253,6 @@
         list-style-type: none;
         margin: 0;
         padding: 0;
-        background-color: #ebc884;
         border-radius: 5px;
     }
 
@@ -394,17 +398,18 @@
         height: 92vh;
     }
 
-    .SideBar h3 {
+    .SideBar div {
         display: block;
         background-color: inherit;
         color: rgb(0, 0, 0);
-        padding: 0% 0% 0% 2%;
+        padding: 5% 0% 0% 2%;
         border: none;
         outline: none;
         text-align: left;
         cursor: pointer;
         transition: 0.3s;
         font-size: 0.8rem;
+        overflow: hidden;
     }
 
     .SideBar h3:hover {
@@ -435,7 +440,8 @@
         margin: 0% 0% 1% 2%;
     }
 
-    .TextBackgroundColor {
+    .PBackC,
+    .SBackC {
         margin: 0% 0% 1% 2%;
     }
 </style>
@@ -661,15 +667,18 @@
             </div>
             <div class="flex-container">
                 <div class="SideBar">
-                    <h3 class="tablinks"
-                        onclick="openSection(event, 'FontFamily')"
-                        id="defaultOpen">FontFamily</h3>
-                    <h3 class="tablinks"
-                        onclick="openSection(event, 'FontSize')">FontSize</h3>
-                    <h3 class="tablinks"
-                        onclick="openSection(event, 'Color')">Color</h3>
-                    <h3 class="tablinks"
-                        onclick="openSection(event, 'BackgroundColor')">BackgroundColor</h3>
+                    <div class="tablinks"
+                         onclick="openSection(event, 'FontFamily')">FontFamily</div>
+                    <div class="tablinks"
+                         onclick="openSection(event, 'FontSize')">FontSize</div>
+                    <div class="tablinks"
+                         onclick="openSection(event, 'Color')">Color</div>
+                    <div class="tablinks"
+                         id="defaultOpen"
+                         onclick="openSection(event, 'PrimaryBackgroundcolor')">PrimaryBackgroundcolor</div>
+                    <div class="tablinks"
+                         id="defaultOpen"
+                         onclick="openSection(event, 'SecondaryBackgroundcolor')">SecondaryBackgroundcolor</div>
                 </div>
                 <div class="SideBarDetail">
                     <div id="FontFamily"
@@ -696,12 +705,20 @@
                                    oninput="TextColor()">
                         </div>
                     </div>
-                    <div id="BackgroundColor"
+                    <div id="PrimaryBackgroundcolor"
                          class="tabcontent">
-                        <div class="TextBackgroundColor">
-                            TextBackgroundColor : <br><input id="TextBackgroundColor"
+                        <div class="PBackC">
+                            PrimaryBackgroundcolor : <br><input id="PBackC"
                                    class="SideBarDetailInput"
-                                   oninput="TextBackgroundColor()">
+                                   oninput="PBackgroundColor()">
+                        </div>
+                    </div>
+                    <div id="SecondaryBackgroundcolor"
+                         class="tabcontent">
+                        <div class="SBackC">
+                            SecondaryBackgroundcolor : <br><input id="SBackC"
+                                   class="SideBarDetailInput"
+                                   oninput="SBackgroundColor()">
                         </div>
                     </div>
                 </div>
@@ -711,6 +728,7 @@
 
 </body>
 <script>
+
 
     let hometext = document.getElementById('hometext');
     let profiletext = document.getElementById('profiletext');
@@ -851,16 +869,16 @@
         }
     }
 
-    function TextBackgroundColor() {
-        var TextBackgroundColor = document.getElementById("TextBackgroundColor").value;
-        var h = document.getElementsByTagName('h2');
-        var btn = document.getElementsByTagName('button');
-        for (let i = 0; i < h.length; i++) {
-            h[i].style.backgroundColor = TextBackgroundColor;
-        }
-        for (let i = 0; i < btn.length; i++) {
-            btn[i].style.backgroundColor = TextBackgroundColor;
-        }
+    function PBackgroundColor() {
+        var PBackC = document.getElementById("PBackC").value;
+        var root = document.querySelector(':root');;
+        root.style.setProperty('--Primary', PBackC);
+    }
+
+    function SBackgroundColor() {
+        var SBackC = document.getElementById("SBackC").value;
+        var root = document.querySelector(':root');;
+        root.style.setProperty('--Secondary', SBackC);
     }
 
 
