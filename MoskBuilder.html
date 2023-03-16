@@ -315,7 +315,8 @@
     }
 
     .dropdown a:hover {
-        background-color: #ddd;
+        background-color: var(--Primary);
+        opacity: 0.8;
     }
 
     .show {
@@ -838,35 +839,30 @@
 
     function TextFontFamily() {
         var TextFontFamily = document.getElementById("TextFontFamily").value;
-        var h = document.getElementsByTagName('h2');
-        for (let i = 0; i < h.length; i++) {
-            h[i].style.fontFamily = TextFontFamily;
+        var all = document.querySelectorAll('h1,h2,h3,h4,h5,h6,p,button,a,legend,select,option,table,small,ul,li');
+        for (let i = 0; i < all.length; i++) {
+            all[i].style.fontFamily = TextFontFamily;
         }
+        document.getElementsByTagName('input')[0].style.fontFamily = TextFontFamily;
     }
 
     function TextFontSize() {
         var TextFontSize = document.getElementById("TextFontSize").value;
-        var hhh = document.getElementsByTagName('h2');
-        var btn = document.getElementsByTagName('button');
+        var all = document.querySelectorAll('h1,h2,h3,h4,h5,h6,p,button,a,legend,select,option,table,small,ul,li');
         if (!TextFontSize.includes("px")) TextFontSize += "px";
-        for (let i = 0; i < hhh.length; i++) {
-            hhh[i].style.fontSize = TextFontSize;
+        for (let i = 0; i < all.length; i++) {
+            all[i].style.fontSize = TextFontSize;
         }
-        for (let i = 0; i < btn.length; i++) {
-            btn[i].style.fontSize = TextFontSize;
-        }
+        document.getElementsByTagName('input')[0].style.fontSize = TextFontSize;
     }
 
     function TextColor() {
         var TextColor = document.getElementById("TextColor").value;
-        var h = document.getElementsByTagName('h2');
-        var btn = document.getElementsByTagName('button');
-        for (let i = 0; i < h.length; i++) {
-            h[i].style.color = TextColor;
+        var all = document.querySelectorAll('h1,h2,h3,h4,h5,h6,p,button,a,legend,select,option,table,tr,small,ul,li');
+        for (let i = 0; i < all.length; i++) {
+            all[i].style.color = TextColor;
         }
-        for (let i = 0; i < btn.length; i++) {
-            btn[i].style.color = TextColor;
-        }
+        document.getElementsByTagName('input')[0].style.color = TextColor;
     }
 
     function PBackgroundColor() {
@@ -880,8 +876,6 @@
         var root = document.querySelector(':root');;
         root.style.setProperty('--Secondary', SBackC);
     }
-
-
 
 
 </script>
